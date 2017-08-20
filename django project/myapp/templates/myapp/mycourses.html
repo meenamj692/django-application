@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+    {% if user.student %}
+        {% if mycourselist %}
+            <h2> List of Courses</h2>
+            <ul>
+            {% for course in mycourselist %}
+                <li>
+                {{ course.title }}
+                </li>
+            {% endfor %}
+            <br/>
+            </ul>
+            {% else %}
+            <strong> You are not registered. Please register for courses </strong>
+            {% endif %}
+        {% else %}
+        <h1> Not a Student</h1>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details Page</title>
+</head>
+<body>
+
+           <h2> Course Details</h2>
+           <ol>
+               <ul>Course no : {{courselist.course_no }}</ul>
+               <ul>Course Title : {{courselist.title}}</ul>
+               <ul>Text Book : {{courselist.textbook}}</ul>
+           </ol>
+
+<p><a href="{% url 'myapp:index' %}">Back to Index</a></p>
+</body>
+</html>

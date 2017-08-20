@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<title>Course Listing APP - {% block title %}Welcome!{% endblock %}</title>
+</head>
+
+<body>
+<div>
+<h1>{% block myhdg %}Hello {{user.first_name}} {% endblock %}</h1>
+            {% block body_block %}*** {% endblock %}
+</div>
+<hr />
+<div>
+<ul class="nav nav-tabs nav-justified">
+<li class="hbar1"><a href="/myapp/about/">Find out about this site</a></li>
+<li class="hbar1"><a href = "{% url 'myapp:index' %}">Main Page</a><br/></li>
+<li class="hbar1"><a href = "{% url 'myapp:topics' %}">Topics</a><br/></li>
+    {% if user.first_name %}
+        <li class="hbar1"><a href ="{% url 'myapp:logout' %}">Log out </a></li>
+        <li class="hbar1"><a href ="{% url 'myapp:mycourses' %}">My Courses </a></li>
+        {% else %}
+        <li class="hbar1"><a href ="{% url 'myapp:login' %}">Login</a></li>
+
+        <li class="hbar1"><a href="{% url 'myapp:register' %}">Register</a> </li>
+    {% endif %}
+
+</ul>
+</div>
+</body>
+</html>

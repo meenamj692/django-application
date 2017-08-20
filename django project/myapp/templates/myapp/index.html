@@ -1,0 +1,16 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+    {% if courselist %}
+<h2>List of Courses</h2>
+<ol>
+            {% for course  in courselist %}
+                <li class="list-group-item list-group-item-info" style="text-align: center; float: inherit"><a href="/myapp/detail/{{course.course_no}}/">{{ course.title}}</a> </li>
+            {% endfor %}
+</ol>
+
+    {% else %}
+<strong>There are no available courses!</strong>
+    {% endif %}
+
+{% endblock %}
